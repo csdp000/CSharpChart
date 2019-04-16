@@ -69,5 +69,18 @@ namespace CSharpChart.Sample.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   A,B,C,D,E
+        ///2017-01,554,342,112,553,443
+        ///2017-02,483,482,333,592,441
+        ///2017-03,102,595,475,612,447
+        ///2017-04,711,212,310,442,339과(와) 유사한 지역화된 문자열을 찾습니다.
+        /// </summary>
+        internal static string SampleData {
+            get {
+                return ResourceManager.GetString("SampleData", resourceCulture);
+            }
+        }
     }
 }

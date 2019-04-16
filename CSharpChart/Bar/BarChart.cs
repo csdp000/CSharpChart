@@ -135,7 +135,7 @@ namespace CSharpChart.Bar
         /// 
         /// </summary>
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        public List<Serie> Series { get; set; } = new List<Serie>();
+        public SerieCollection Series { get; set; } = new SerieCollection();
 
         public BarChart()
         {
@@ -144,11 +144,22 @@ namespace CSharpChart.Bar
         }
         protected abstract void DrawAxis(Graphics graphics, float maxValue, float interval);
 
-        protected abstract void DrawSeries(Graphics graphics, IList<Serie> series, float chartLength);
+        protected abstract void DrawSeries(Graphics graphics, SerieCollection series, float chartLength);
+
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            Invalidate();
+        } 
 
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+            //Draw Title 이미지 
+            if (BarTitleImage != null)
+            {
+                e.Graphics.DrawImage(BarTitleImage, ((Width - BarTitleImageSize.Width) / 2), 0, BarTitleImageSize.Width, BarTitleImageSize.Height);
+            }
         }
         /// <summary>
         /// 좌표계 원점을 Padding 속성 값 만큼 이동
@@ -156,7 +167,7 @@ namespace CSharpChart.Bar
         /// <param name="graphics">Graphics 객체</param>
         protected void TranslateTransform(Graphics graphics)
         {
-            graphics.TranslateTransform(Padding.Left,Padding.Top);
+            graphics.TranslateTransform(Padding.Left, Padding.Top);
         } 
 
     }

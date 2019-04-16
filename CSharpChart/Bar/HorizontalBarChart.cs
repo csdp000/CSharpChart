@@ -16,13 +16,9 @@ namespace CSharpChart.Bar
         {
             base.OnPaint(e);
             var graphics = e.Graphics;
-
-            //Draw Title 이미지 
-            if (BarTitleImage != null)
-            {
-                graphics.DrawImage(BarTitleImage, ((Width - BarTitleImageSize.Width ) / 2) , 0, BarTitleImageSize.Width, BarTitleImageSize.Height);
-            }
+             
             TranslateTransform(graphics);
+            
             if (Series.Count > 0)
             {
                 var chartMaxValue = Series.Max((x) => x.Value);
@@ -32,11 +28,10 @@ namespace CSharpChart.Bar
             }
         }
 
-        protected override void DrawSeries(Graphics graphics, IList<Serie> series, float chartLength)
+        protected override void DrawSeries(Graphics graphics, SerieCollection series, float chartLength)
         {
-
-            var chartMaxValue = Series.Max((x) => x.Value);
-             
+            //항목에서 최대값 구하기
+            var chartMaxValue = Series.Max((x) => x.Value); 
 
             float barCoordY = 0;
 

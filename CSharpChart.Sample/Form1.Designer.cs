@@ -34,10 +34,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.button4 = new System.Windows.Forms.Button();
-            this.horizontalBarChart1 = new CSharpChart.Bar.HorizontalBarChart();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.horizontalBarChart1 = new CSharpChart.Bar.HorizontalBarChart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -55,7 +58,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(285, 39);
+            this.button2.Location = new System.Drawing.Point(293, 10);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -65,7 +68,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(366, 39);
+            this.button3.Location = new System.Drawing.Point(293, 39);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;
@@ -80,43 +83,18 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(470, 39);
+            this.button4.Location = new System.Drawing.Point(466, 10);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 23);
+            this.button4.Size = new System.Drawing.Size(136, 23);
             this.button4.TabIndex = 4;
-            this.button4.Text = "타이머 토글";
+            this.button4.Text = "랜덤 타이머 토글";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.Button4_Click);
-            // 
-            // horizontalBarChart1
-            // 
-            this.horizontalBarChart1.AutoBarSize = false;
-            this.horizontalBarChart1.AutoBarSpacing = false;
-            this.horizontalBarChart1.AxisColor = System.Drawing.Color.LightGray;
-            this.horizontalBarChart1.AxisLineSpacing = 5F;
-            this.horizontalBarChart1.BackColor = System.Drawing.Color.White;
-            this.horizontalBarChart1.BarCaptionColor = System.Drawing.Color.White;
-            this.horizontalBarChart1.BarCaptionFont = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.horizontalBarChart1.BarCaptionVisible = true;
-            this.horizontalBarChart1.BarSize = 40F;
-            this.horizontalBarChart1.BarSpacing = 5F;
-            this.horizontalBarChart1.BarTitleImage = global::CSharpChart.Sample.Properties.Resources.charttitle;
-            this.horizontalBarChart1.BarTitleImageSize = new System.Drawing.Size(300, 80);
-            this.horizontalBarChart1.BarValueFont = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.horizontalBarChart1.BarValueVisible = true;
-            this.horizontalBarChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.horizontalBarChart1.ForeColor = System.Drawing.Color.Black;
-            this.horizontalBarChart1.Location = new System.Drawing.Point(3, 17);
-            this.horizontalBarChart1.Name = "horizontalBarChart1";
-            this.horizontalBarChart1.Padding = new System.Windows.Forms.Padding(200, 80, 50, 50);
-            this.horizontalBarChart1.Size = new System.Drawing.Size(1015, 390);
-            this.horizontalBarChart1.TabIndex = 5;
-            this.horizontalBarChart1.Text = "horizontalBarChart1";
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 1027F));
             this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.groupBox2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -139,8 +117,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Chart 영역";
             // 
+            // horizontalBarChart1
+            // 
+            this.horizontalBarChart1.AutoBarSize = false;
+            this.horizontalBarChart1.AutoBarSpacing = false;
+            this.horizontalBarChart1.AxisColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.horizontalBarChart1.AxisLineSpacing = 100F;
+            this.horizontalBarChart1.BackColor = System.Drawing.Color.White;
+            this.horizontalBarChart1.BarCaptionColor = System.Drawing.Color.White;
+            this.horizontalBarChart1.BarCaptionFont = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.horizontalBarChart1.BarCaptionVisible = true;
+            this.horizontalBarChart1.BarSize = 40F;
+            this.horizontalBarChart1.BarSpacing = 10F;
+            this.horizontalBarChart1.BarTitleImage = global::CSharpChart.Sample.Properties.Resources.charttitle;
+            this.horizontalBarChart1.BarTitleImageSize = new System.Drawing.Size(350, 100);
+            this.horizontalBarChart1.BarValueFont = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.horizontalBarChart1.BarValueVisible = true;
+            this.horizontalBarChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.horizontalBarChart1.Location = new System.Drawing.Point(3, 17);
+            this.horizontalBarChart1.Name = "horizontalBarChart1";
+            this.horizontalBarChart1.Padding = new System.Windows.Forms.Padding(200, 100, 50, 50);
+            this.horizontalBarChart1.Size = new System.Drawing.Size(1015, 390);
+            this.horizontalBarChart1.TabIndex = 0;
+            this.horizontalBarChart1.Text = "horizontalBarChart1";
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.button2);
@@ -152,6 +156,31 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "제어";
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(608, 39);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(78, 23);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "항목 변경";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(466, 39);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(136, 23);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "지정 항목 + 10";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1;
+            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
             // 
             // Form1
             // 
@@ -174,10 +203,13 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button4;
-        private Bar.HorizontalBarChart horizontalBarChart1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button button6;
+        private Bar.HorizontalBarChart horizontalBarChart1;
     }
 }
 
