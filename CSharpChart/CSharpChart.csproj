@@ -46,6 +46,9 @@
     <Compile Include="Bar\BarChart.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Bar\HorizontalBarChart.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Model\Serie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

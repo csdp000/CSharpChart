@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace CSharpChart.Model
 {
+    [Serializable]
     public class Serie
     {
         public string Text { get; set; }
