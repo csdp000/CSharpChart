@@ -35,6 +35,7 @@ namespace CSharpChart.Bar
 
             float barCoordY = 0;
 
+            
             foreach (Serie serie in Series)
             {
                 float barWidth = chartLength / (chartMaxValue / serie.Value);
@@ -42,6 +43,24 @@ namespace CSharpChart.Bar
 
                 graphics.FillRectangle(barBrush, 0, barCoordY, barWidth, BarSize);
 
+                //to-do: 이미지 가로 사이즈 Padding 값에 따라 조정되게끔 수정해야함
+
+                //Serie 이미지 처리 로직
+                if (serie.Image != null)
+                {
+                    const int imagePadding = 10;
+
+                    int imageX = -Padding.Left+ imagePadding;
+                    float imageWidth = Padding.Left- imagePadding;
+                    float imageHeight = BarSpacing + BarSize;
+
+                    var imageRect = new Rectangle(
+                        new Point(imageX, (int)barCoordY),
+                        new Size((int)imageWidth, (int)imageHeight)
+                        );
+
+                    graphics.DrawImage(serie.Image, imageRect);
+                }
                 if (BarValueVisible)
                 {
                     string valueString = serie.Value.ToString("0.0");
@@ -49,9 +68,26 @@ namespace CSharpChart.Bar
                 } 
                 if(BarCaptionVisible)
                 { 
-                    //to-do 미구현
+                    // 쓰여질 text 사이즈 
+                    Size textSize = TextRenderer.MeasureText(serie.Text, BarCaptionFont);
 
-                }
+                    //자동 생삭 설정
+                    Color captionColor = Color.Black;
+                    if (AutoBarCaptionColor)
+                        captionColor = ControlPaint.Dark(serie.LineColor, (float)0.05);
+                    else
+                        captionColor = BarCaptionColor;
+
+                    // Bar 너비랑 텍스트 사이즈 비교할때 보정값? 오차범위 같은 값
+                    const int compare = 5;
+                     
+                    // Bar 너비보다 텍스트 사이즈가 클경우 잘라야함.
+                    int captionWidth = (int)((barWidth - compare < textSize.Width) ? textSize.Width - (textSize.Width - compare - barWidth) : textSize.Width);
+                    int captionHeight = (int)((BarSize - compare < textSize.Height) ? textSize.Height - (textSize.Height - compare - BarSize) : textSize.Height);
+
+                    graphics.DrawString(serie.Text  , BarCaptionFont, new Pen(captionColor).Brush,
+                        new RectangleF(0, barCoordY, captionWidth , captionHeight));
+                } 
 
                 barCoordY += BarSpacing + BarSize;
             }
@@ -64,7 +100,7 @@ namespace CSharpChart.Bar
             for (int i = 0; i <= maxValue / interval; i++)
             {
 
-                var axisString = $"{(interval * i).ToString()}"; // to-do: Format 지정 할 수 있도록 하면 좋을듯 
+                var axisString = $"{(interval * i).ToString()}"; 
 
                 graphics.DrawLine(new Pen(AxisColor, 2), axisX, 0, axisX, ChartHeight);
 

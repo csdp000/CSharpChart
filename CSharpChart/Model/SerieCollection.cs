@@ -9,8 +9,7 @@ namespace CSharpChart.Model
 { 
     [Serializable]
     public class SerieCollection : ICollection<Serie>
-    {
-        //to-do: 문자열로 검색할 경우 오버헤드 발생
+    { 
 
         List<Serie> _series = new List<Serie>();
 

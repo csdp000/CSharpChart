@@ -71,11 +71,21 @@ namespace CSharpChart.Sample.Properties {
         }
         
         /// <summary>
-        ///   A,B,C,D,E
-        ///2017-01,554,342,112,553,443
-        ///2017-02,483,482,333,592,441
-        ///2017-03,102,595,475,612,447
-        ///2017-04,711,212,310,442,339과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap imageimporttip {
+            get {
+                object obj = ResourceManager.GetObject("imageimporttip", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Apple	Microsoft	Oracle	삼성	Test Serie	한글
+        ///2017-01	554	342	112	553	443	500
+        ///2017-02	483	482	333	592	441	100
+        ///2017-03,102	595	475	612	447	500
+        ///2017-04	711	212	310	442	339	1000과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         internal static string SampleData {
             get {

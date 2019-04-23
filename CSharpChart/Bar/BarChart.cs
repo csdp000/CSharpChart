@@ -40,6 +40,7 @@ namespace CSharpChart.Bar
                 return _chartHeight;
             }
         }
+         
 
         /// <summary>
         /// 차트 축 색상
@@ -80,6 +81,10 @@ namespace CSharpChart.Bar
         /// Bar Caption 색상
         /// </summary>
         public Color BarCaptionColor { get; set; } = Color.White;
+        /// <summary>
+        /// Bar Caption 색상을 자동으로 설정합니다.
+        /// </summary>
+        public bool AutoBarCaptionColor { get; set; } = true;
 
         /// <summary>
         /// Bar Caption 표시 여부
@@ -124,9 +129,8 @@ namespace CSharpChart.Bar
             {
                 _barTitleImageSize = value;
                 if (_barTitleImage != null)
-                {  
-                    if (Padding.Top < _barTitleImageSize.Height)
-                        Padding = new Padding(Padding.Left, _barTitleImageSize.Height, Padding.Right, Padding.Bottom);
+                { 
+                    Padding = new Padding(Padding.Left, _barTitleImageSize.Height+50, Padding.Right, Padding.Bottom); 
                 }
             }
         }
@@ -144,17 +148,17 @@ namespace CSharpChart.Bar
         }
         protected abstract void DrawAxis(Graphics graphics, float maxValue, float interval);
 
-        protected abstract void DrawSeries(Graphics graphics, SerieCollection series, float chartLength);
+        protected abstract void DrawSeries(Graphics graphics, SerieCollection series, float chartLength); 
 
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
             Invalidate();
-        } 
-
+        }  
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+            
             //Draw Title 이미지 
             if (BarTitleImage != null)
             {
